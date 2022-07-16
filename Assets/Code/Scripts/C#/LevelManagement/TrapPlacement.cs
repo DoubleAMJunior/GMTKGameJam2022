@@ -29,7 +29,7 @@ namespace GMTKGameJam2022
 			if ( Physics2D.OverlapCircle ( trapPosition, minDistanceBetweenTrap, trapLayer ) )
 			{
 				print("Too close to other trap");
-				OnTooCloseTooOtherTraps.Invoke ();
+				OnTooCloseTooOtherTraps?.Invoke ();
 				return;
 			}
 			
