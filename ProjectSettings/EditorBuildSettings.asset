@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Race.unity
     guid: aaa9498724c6a7d469449081624bcad7
   - enabled: 1
-    path: Assets/Scenes/Track1.unity
+    path: Assets/Scenes/TrackTemplate.unity
     guid: a4cc80845a5e7af4fbf70858eead0669
   - enabled: 1
     path: Assets/Scenes/Transition.unity
