@@ -36,10 +36,9 @@ namespace GMTKGameJam2022
 
 			// Check if its inside track
 			if ( Physics2D.OverlapPoint ( trapPosition, trackLayer ) )
-			{
 				// Place trap if its pass all requirement
 				trapsReference.Add ( Instantiate ( selectedTrap, trapPosition, Quaternion.identity ).transform );
-			}
+			
 		}
 
 		public void SelectTrap (GameObject trap) => selectedTrap = trap;

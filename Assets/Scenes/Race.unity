@@ -133,6 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 384531669}
   - component: {fileID: 384531668}
+  - component: {fileID: 384531670}
   m_Layer: 0
   m_Name: RaceManager
   m_TagString: Untagged
@@ -169,6 +170,33 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &384531670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 384531667}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f1f98732de12534cb382a35044ab438, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  directionInput:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: d72cec54191246c4787ef64ebd3eb8d6, type: 2}
+        m_TargetAssemblyTypeName: CarInterface, Assembly-CSharp
+        m_MethodName: SetInputVector
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &697294065
 GameObject:
   m_ObjectHideFlags: 0
@@ -637,6 +665,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2946254774891686820, guid: c59b62a70cfb1a345b5436f84c0d9fca, type: 3}
+      propertyPath: data
+      value: 
+      objectReference: {fileID: 11400000, guid: b6e24eb9886139e458f2d1b26a552f25, type: 2}
+    - target: {fileID: 2946254774891686820, guid: c59b62a70cfb1a345b5436f84c0d9fca, type: 3}
+      propertyPath: carInterface
+      value: 
+      objectReference: {fileID: 11400000, guid: d72cec54191246c4787ef64ebd3eb8d6, type: 2}
     - target: {fileID: 3998409581148098223, guid: c59b62a70cfb1a345b5436f84c0d9fca, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -692,3 +728,15 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8969938036576883740, guid: c59b62a70cfb1a345b5436f84c0d9fca, type: 3}
   m_PrefabInstance: {fileID: 5036417164547983585}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &5036417164547983587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5036417164547983586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 495474d5062dc1645819f13aa073f5cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

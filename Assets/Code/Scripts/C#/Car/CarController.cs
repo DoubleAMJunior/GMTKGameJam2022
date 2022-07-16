@@ -10,8 +10,9 @@ to add:
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class CarController : MonoBehaviour {
+[RequireComponent(typeof(Rigidbody2D))]
+public class CarController : MonoBehaviour ,ICarHitResponse
+{
 	[SerializeField] private CarData data;
     [SerializeField] private CarInterface carInterface;
 	private Rigidbody2D rb;
@@ -86,5 +87,16 @@ public class CarController : MonoBehaviour {
 		rb.velocity = forwardVelocity + rightVelocity * data.driftFactor;
 	}
 
-	
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+		var obstacle = other.gameObject.GetComponent<IObstacle>();
+		if (obstacle != null)
+			obstacle.OnHit(this);
+	}
+
+    public void SlowDown(int percent)
+    {
+		int reverseP = 100 - percent;
+        rb.velocity *= reverseP;
+    }
 }
