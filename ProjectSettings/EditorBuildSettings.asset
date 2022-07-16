@@ -6,6 +6,18 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
+    path: Assets/Scenes/Menu.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/Race.unity
+    guid: aaa9498724c6a7d469449081624bcad7
+  - enabled: 1
+    path: Assets/Scenes/Track1.unity
+    guid: a4cc80845a5e7af4fbf70858eead0669
+  - enabled: 1
+    path: Assets/Scenes/Transition.unity
+    guid: 1f43567eb326bc848bfbe46f0c1e7b78
+  - enabled: 1
+    path: Assets/Scenes/TrapPlacement.unity
+    guid: c345e90103035d24fb423d30cf1942d5
   m_configObjects: {}
