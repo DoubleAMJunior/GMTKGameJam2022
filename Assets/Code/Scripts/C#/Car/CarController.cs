@@ -1,12 +1,3 @@
-/* unfinished!
-to fix:
-	- scriptable object (player data) :sob:
-to add:
-	- oil mechanic
-	- only allow acceleration when event
-	- collision (player movement script)
-*/
-
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -18,8 +9,6 @@ public class CarController : MonoBehaviour ,ICarHitResponse
 	private Rigidbody2D rb;
 	private float rotationAngle = 0f;
 	private float velocityVsUp = 0f;
-
-	
 	
 	private void Awake()
 	{
@@ -31,7 +20,6 @@ public class CarController : MonoBehaviour ,ICarHitResponse
 		ApplyForwardForce();
 		KillSideVelocity();
 		ApplySteering();
-
 	}
 
 	void ApplyForwardForce()
@@ -53,12 +41,12 @@ public class CarController : MonoBehaviour ,ICarHitResponse
 			return;
 		}
 
-		if (velocityVsUp < data.maxSpeed && carInterface.accelerationInput < 0) //max speed
+		if (velocityVsUp > data.maxSpeed && carInterface.accelerationInput < 0) //max speed
 		{
 			return;
 		}
 
-		if (velocityVsUp < -.5f * data.maxSpeed && carInterface.accelerationInput < 0) //reverse speed
+		if (velocityVsUp < -data.maxSpeed*0.5f && carInterface.accelerationInput < 0) //reverse speed
 		{
 			return;
 		}
@@ -75,7 +63,12 @@ public class CarController : MonoBehaviour ,ICarHitResponse
 
 	void ApplySteering()
 	{
-		rotationAngle -= carInterface.steeringInput * data.turnFactor;
+		//prevent car from turning while stopped
+        float minSpeedBeforeAllowTurningFactor = (rb.velocity.magnitude / 2);
+        minSpeedBeforeAllowTurningFactor = Mathf.Clamp01(minSpeedBeforeAllowTurningFactor);
+
+		int dir = velocityVsUp > 0 ? 1: -1;
+		rotationAngle -= carInterface.steeringInput * data.turnFactor * minSpeedBeforeAllowTurningFactor * dir;
 		rb.MoveRotation(rotationAngle);
 	}
 
