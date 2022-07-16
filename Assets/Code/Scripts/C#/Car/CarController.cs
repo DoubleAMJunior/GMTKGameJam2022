@@ -97,6 +97,6 @@ public class CarController : MonoBehaviour ,ICarHitResponse
     public void SlowDown(int percent)
     {
 		int reverseP = 100 - percent;
-        rb.velocity *= reverseP;
+        rb.velocity *= reverseP/100;
     }
 }
