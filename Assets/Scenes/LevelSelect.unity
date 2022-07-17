@@ -1404,8 +1404,8 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: 'Use the WASD Keys to Move
 
-    Place down traps before you start to give
-    yourself an advantage'
+    Place down traps before you start racing
+    to give yourself an advantage over the other racers'
 --- !u!222 &1876125181
 CanvasRenderer:
   m_ObjectHideFlags: 0
