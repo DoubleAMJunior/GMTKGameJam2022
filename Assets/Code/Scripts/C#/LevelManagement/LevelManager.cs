@@ -8,6 +8,13 @@ namespace GMTKGameJam2022
     [CreateAssetMenu( fileName ="LevelManager",menuName ="Game/LevelManager",order =0)]
     public class LevelManager : ScriptableObject
     {
+		public void CloseGame()
+		{
+			Application.Quit();
+			UnityEditor.EditorApplication.isPlaying = false;
+			Debug.Log("game should be closed");
+		}
+
         public void LoadScene(string scene)
         {
             SceneManager.LoadScene(scene);
