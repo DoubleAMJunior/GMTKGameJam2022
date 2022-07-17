@@ -1,22 +1,25 @@
 fileFormatVersion: 2
-guid: f974ae183e3760241b9ee372c99cd076
+guid: c0dab1f484931f3439a8a1bdc8304aaf
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -417193701833657833
-    second: Traps2_0
+      213: 8005069346772543200
+    second: TrapSprites_0
   - first:
-      213: 7970239368570043725
-    second: Traps2_1
+      213: -8940392156632699155
+    second: TrapSprites_1
   - first:
-      213: 3135360668717909393
-    second: Traps2_2
+      213: 9080589681607335559
+    second: TrapSprites_2
   - first:
-      213: -9178445588835876455
-    second: Traps2_3
+      213: 1817566603969977324
+    second: TrapSprites_3
   - first:
-      213: 3757933934945687808
-    second: Traps2_4
+      213: 4717437477004810890
+    second: TrapSprites_4
+  - first:
+      213: 7537706274724063379
+    second: TrapSprites_5
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -47,7 +50,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -130,7 +133,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Traps2_0
+      name: TrapSprites_0
       rect:
         serializedVersion: 2
         x: 0
@@ -144,14 +147,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 712bcafd984d53af0800000000000000
-      internalID: -417193701833657833
+      spriteID: 0e6eeb08828b71f60800000000000000
+      internalID: 8005069346772543200
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Traps2_1
+      name: TrapSprites_1
       rect:
         serializedVersion: 2
         x: 16
@@ -165,14 +168,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d4d73724a7afb9e60800000000000000
-      internalID: 7970239368570043725
+      spriteID: dee2837a3b85de380800000000000000
+      internalID: -8940392156632699155
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Traps2_2
+      name: TrapSprites_2
       rect:
         serializedVersion: 2
         x: 32
@@ -186,14 +189,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 19589a59ae9038b20800000000000000
-      internalID: 3135360668717909393
+      spriteID: 78e5843543cb40e70800000000000000
+      internalID: 9080589681607335559
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Traps2_3
+      name: TrapSprites_3
       rect:
         serializedVersion: 2
         x: 48
@@ -207,14 +210,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 991cf2fcd5c9f9080800000000000000
-      internalID: -9178445588835876455
+      spriteID: ceb5e39423b493910800000000000000
+      internalID: 1817566603969977324
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Traps2_4
+      name: TrapSprites_4
       rect:
         serializedVersion: 2
         x: 64
@@ -228,8 +231,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 009d2d1e00dd62430800000000000000
-      internalID: 3757933934945687808
+      spriteID: a8a9cfa2464b77140800000000000000
+      internalID: 4717437477004810890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TrapSprites_5
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 398292e9bef4b9860800000000000000
+      internalID: 7537706274724063379
       vertices: []
       indices: 
       edges: []

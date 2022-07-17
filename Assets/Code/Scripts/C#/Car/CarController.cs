@@ -15,17 +15,20 @@ public class CarController : MonoBehaviour, ICarHitResponse
 
 	protected IEnumerator skidCoroutine;
 	protected IEnumerator engineCoroutine;
-	protected bool bEngineActive = true, bKillSideVelocity = false;
+	protected bool bEngineActive = true, bKillSideVelocity = true;
 	
 	private SpriteRenderer spriteRenderer;
+	private TrailRenderer trailRenderer;
 	private void Awake()
 	{
 		rb = GetComponent<Rigidbody2D>();
 		rankData = GetComponent<PlayerRankData>();
+		trailRenderer = GetComponent<TrailRenderer>();
+		trailRenderer.emitting = false;
 		dragValue = data.dragValue;
 		angularDrag = rb.angularDrag;
 		forwardMovement = data.accelerationFactor;
-		//spriteRenderer = transform.GetChild(0).GetComponent<SpriteRenderer>();
+		spriteRenderer = GetComponent<SpriteRenderer>();
 	}
 
 	protected virtual void FixedUpdate()
@@ -137,18 +140,22 @@ public class CarController : MonoBehaviour, ICarHitResponse
 		bKillSideVelocity = false;
 		rb.sharedMaterial = data.skidPhysics;
 		forwardMovement = 1;
+		trailRenderer.emitting = true;
 		yield return new WaitForSeconds(time);
 		dragValue = data.dragValue;
 		rb.angularDrag = angularDrag;
 		bKillSideVelocity = true;
 		rb.sharedMaterial = data.normalPhysics;
 		forwardMovement = data.accelerationFactor;
+		trailRenderer.emitting = false;
 	}
 	IEnumerator EngineTime(float time)
 	{
 		bEngineActive = false;
+		spriteRenderer.color = new Color(0.5f, 0.5f, 0.5f, 0.5f);//data.wrechedCar;
 		yield return new WaitForSeconds(time);
 		bEngineActive = true;
+		spriteRenderer.color = new Color(1, 1, 1, 1);//data.wrechedCar;
 	}
 
 	void AssignSprite()

@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
-using UnityEditor.UI;
 using System.Reflection;
 
 public class Checkpoint : MonoBehaviour
