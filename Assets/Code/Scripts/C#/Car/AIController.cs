@@ -11,7 +11,9 @@ public class AIController : CarController
         float steerForce = CalculateSteerForce();
         if (bEngineActive)
             ApplyForwardForce(ThrottleForce(steerForce));
-        KillSideVelocity();
+
+        if (bKillSideVelocity)
+            KillSideVelocity();
 
         ApplySteering(steerForce);
     }
