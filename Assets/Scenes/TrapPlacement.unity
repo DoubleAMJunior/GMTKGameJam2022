@@ -302,6 +302,26 @@ PrefabInstance:
       propertyPath: m_Text
       value: Back
       objectReference: {fileID: 0}
+    - target: {fileID: 4397580633106368488, guid: 940a4dcf139c1bb47a14323b93b5ab64, type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 2e1d85e111f62244cbc671bdc6aefd81, type: 3}
+    - target: {fileID: 4397580633106368488, guid: 940a4dcf139c1bb47a14323b93b5ab64, type: 3}
+      propertyPath: m_FontData.m_MaxSize
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 4397580633106368488, guid: 940a4dcf139c1bb47a14323b93b5ab64, type: 3}
+      propertyPath: m_FontData.m_MinSize
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4397580633106368488, guid: 940a4dcf139c1bb47a14323b93b5ab64, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 4397580633106368488, guid: 940a4dcf139c1bb47a14323b93b5ab64, type: 3}
+      propertyPath: m_FontData.m_Alignment
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 5911979719842226817, guid: 940a4dcf139c1bb47a14323b93b5ab64, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 2
@@ -984,12 +1004,24 @@ PrefabInstance:
       value: Start
       objectReference: {fileID: 0}
     - target: {fileID: 4397580633106368488, guid: 940a4dcf139c1bb47a14323b93b5ab64, type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 2e1d85e111f62244cbc671bdc6aefd81, type: 3}
+    - target: {fileID: 4397580633106368488, guid: 940a4dcf139c1bb47a14323b93b5ab64, type: 3}
+      propertyPath: m_FontData.m_MaxSize
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 4397580633106368488, guid: 940a4dcf139c1bb47a14323b93b5ab64, type: 3}
       propertyPath: m_FontData.m_MinSize
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4397580633106368488, guid: 940a4dcf139c1bb47a14323b93b5ab64, type: 3}
       propertyPath: m_FontData.m_FontSize
-      value: 31
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 4397580633106368488, guid: 940a4dcf139c1bb47a14323b93b5ab64, type: 3}
+      propertyPath: m_FontData.m_Alignment
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 5911979719842226817, guid: 940a4dcf139c1bb47a14323b93b5ab64, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -1373,20 +1405,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 21
-    m_FontStyle: 1
+    m_Font: {fileID: 12800000, guid: 2e1d85e111f62244cbc671bdc6aefd81, type: 3}
+    m_FontSize: 50
+    m_FontStyle: 0
     m_BestFit: 1
-    m_MinSize: 10
-    m_MaxSize: 40
-    m_Alignment: 1
+    m_MinSize: 5
+    m_MaxSize: 100
+    m_Alignment: 7
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -1636,20 +1668,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 9
-    m_FontStyle: 1
+    m_Font: {fileID: 12800000, guid: 2e1d85e111f62244cbc671bdc6aefd81, type: 3}
+    m_FontSize: 50
+    m_FontStyle: 0
     m_BestFit: 1
     m_MinSize: 2
-    m_MaxSize: 40
-    m_Alignment: 1
+    m_MaxSize: 100
+    m_Alignment: 7
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
