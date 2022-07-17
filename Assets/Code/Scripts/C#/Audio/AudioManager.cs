@@ -83,6 +83,7 @@ public class AudioManager : MonoBehaviour, IAudioManager
 	
 	private void PlayCarAudio(AudioClip clip)
 	{
+		carAudioSource.clip = clip;
 		carAudioSource.Play();
 	}
 
@@ -142,30 +143,35 @@ public class AudioManager : MonoBehaviour, IAudioManager
 	public void PlayCarSpeedingUpSfx()
 	{
 		UnloadCarAudioSource();
+		carAudioSource.loop = true;
 		PlayCarAudio(carSpeedingUp);
 	}
 	
 	public void PlayCarEngineRunningSfx()
 	{
 		UnloadCarAudioSource();
+		carAudioSource.loop = true;
 		PlayRandomCarSfx(carEngineRunning);
 	}
 	
 	public void PlayCarCrashSfx()
 	{
 		UnloadCarAudioSource();
+		carAudioSource.loop = false;
 		PlayRandomCarSfx(carSmashingBreak);
 	}
 	
 	public void PlayCarFallingIntoTrap()
 	{
 		UnloadCarAudioSource();
+		carAudioSource.loop = false;
 		PlayCarAudio(carFallingIntoTrap);
 	}
 
 	public void PlayCarEngineTurningOffSfx()
 	{
 		UnloadCarAudioSource();
+		carAudioSource.loop = false;
 		PlayCarAudio(carEngineTurningOff);
 	}
 	
