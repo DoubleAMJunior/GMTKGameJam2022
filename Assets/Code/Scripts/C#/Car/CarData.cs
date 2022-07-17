@@ -13,4 +13,7 @@ public class CarData : ScriptableObject {
 	public float dragValue = 100f;
 	public float dragTime = 3f;
 	public float driftFactor = .5f;
+	public PhysicsMaterial2D normalPhysics, skidPhysics;
+
+	public Sprite[] carSprites = new Sprite[8];
 }

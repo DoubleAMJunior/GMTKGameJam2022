@@ -8,6 +8,10 @@ namespace GMTKGameJam2022
     [CreateAssetMenu( fileName ="LevelManager",menuName ="Game/LevelManager",order =0)]
     public class LevelManager : ScriptableObject
     {
+        public void LoadScene(string scene)
+        {
+            SceneManager.LoadScene(scene);
+        }
         public List<string> TrackList;
         public string TrapPlacementScene;
         public string RaceScene;

@@ -9,7 +9,8 @@ public class AIController : CarController
     protected override void FixedUpdate()
     {
         float steerForce = CalculateSteerForce();
-        ApplyForwardForce(ThrottleForce(steerForce));
+        if (bEngineActive)
+            ApplyForwardForce(ThrottleForce(steerForce));
         KillSideVelocity();
 
         ApplySteering(steerForce);
