@@ -1,1 +1,0 @@
-WindowGold and WindowBrass is a 9-slicing sprite used for any in-game windows/buttons. each slice is sized 16*16 in pixel.
