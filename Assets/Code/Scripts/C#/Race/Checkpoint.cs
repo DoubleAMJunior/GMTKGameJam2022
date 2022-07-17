@@ -3,12 +3,27 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
+using UnityEditor.UI;
+using System.Reflection;
 
 public class Checkpoint : MonoBehaviour
 {
-    public int checkpointNumber;
+    [SerializeField]public int checkpointNumber;
+    public Checkpoint nextCheckpoint;
     public bool EndOfRace;
-
+    private void Start()
+    {
+        SetCheckStuff();
+    }
+    public void SetCheckStuff()
+    {
+        for (int i = 0; i < transform.parent.childCount; i++)
+        {
+            Checkpoint checkpoint = transform.parent.GetChild(i).gameObject.GetComponent<Checkpoint>();
+            checkpoint.checkpointNumber = i;
+            checkpoint.nextCheckpoint = transform.parent.GetChild(i + 1 >= transform.parent.childCount ? 0 : i + 1).gameObject.GetComponent<Checkpoint>();
+        }
+    }
     private void OnTriggerEnter2D(Collider2D other)
     {
         PlayerRankData playerData = other.GetComponent<PlayerRankData>();
@@ -44,6 +59,8 @@ public class Checkpoint : MonoBehaviour
     {
         player.LastCheckpointNumber = this.checkpointNumber;
         player.LastCheckpoint = this;
+        player.nextCheckpoint = nextCheckpoint;
+
     }
 
     private void UpdateLapNumber(PlayerRankData player)

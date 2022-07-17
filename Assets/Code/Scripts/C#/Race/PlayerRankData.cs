@@ -8,7 +8,7 @@ public class PlayerRankData : MonoBehaviour, IComparable<PlayerRankData>
 {
     public int CurrentRank;
     public int LastCheckpointNumber = -1;
-    public Checkpoint LastCheckpoint;
+    public Checkpoint LastCheckpoint, nextCheckpoint;
     public int CurrentLap = 0;
 
     // IMPORTANT: make this a reference to PLAYER and get position verctor2 of it when needed

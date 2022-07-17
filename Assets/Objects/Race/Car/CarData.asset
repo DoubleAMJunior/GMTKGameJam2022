@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   accelerationMax: 10
   maxSpeed: 2
-  accelerationFactor: 5
-  turnFactor: 3.5
-  dragValue: 1
-  dragTime: 1
+  accelerationFactor: 6
+  turnFactor: 3
+  dragValue: 20
+  dragTime: 0.5
   driftFactor: 0.95

@@ -5,29 +5,31 @@ using UnityEngine;
 public class CarController : MonoBehaviour ,ICarHitResponse
 {
 	[SerializeField] private CarData data;
-    [SerializeField] private CarInterface carInterface;
+    [SerializeField] protected CarInterface carInterface;
 	private Rigidbody2D rb;
 	private float rotationAngle = 0f;
 	private float velocityVsUp = 0f;
-	
+
+	protected PlayerRankData rankData;	
 	private void Awake()
 	{
 		rb = GetComponent<Rigidbody2D>();
+		rankData = GetComponent<PlayerRankData>();
 	}
 
-	private void FixedUpdate()
+	protected virtual void FixedUpdate()
 	{
-		ApplyForwardForce();
+		ApplyForwardForce(carInterface.accelerationInput);
 		KillSideVelocity();
-		ApplySteering();
+		ApplySteering(carInterface.steeringInput);
 	}
 
-	void ApplyForwardForce()
+	protected void ApplyForwardForce(float force)
 	{
 		//apply drag when there is no accelerationInput
-		if (carInterface.accelerationInput == 0)
+		if (force <= 0.5f && force >= -0.5f)
 		{
-			rb.drag = Mathf.Lerp(rb.drag, data.dragValue, Time.fixedDeltaTime * data.dragTime);
+			rb.drag = Mathf.Lerp(0, data.dragValue, Time.fixedDeltaTime * data.dragTime);
 		}
 		else
 		{
@@ -36,43 +38,43 @@ public class CarController : MonoBehaviour ,ICarHitResponse
 
 		//limit max forward speed and reverse speed
 		velocityVsUp = Vector2.Dot(transform.up, rb.velocity);
-		if (velocityVsUp > data.maxSpeed && carInterface.accelerationInput > 0)
+		if (velocityVsUp > data.maxSpeed && force > 0)
 		{
 			return;
 		}
 
-		if (velocityVsUp > data.maxSpeed && carInterface.accelerationInput < 0) //max speed
+		if (velocityVsUp > data.maxSpeed && force < 0) //max speed
 		{
 			return;
 		}
 
-		if (velocityVsUp < -data.maxSpeed*0.5f && carInterface.accelerationInput < 0) //reverse speed
+		if (velocityVsUp < -data.maxSpeed*0.5f && force < 0) //reverse speed
 		{
 			return;
 		}
 
-		if (rb.velocity.sqrMagnitude > data.maxSpeed * data.maxSpeed && carInterface.accelerationInput > 0) //cannot go faster in any direction while accelerating
+		if (rb.velocity.sqrMagnitude > data.maxSpeed * data.maxSpeed && force > 0) //cannot go faster in any direction while accelerating
 		{
 			return;
 		}
 
 		//move car forward
-		Vector2 engineForceVector = transform.up * carInterface.accelerationInput * data.accelerationFactor;
+		Vector2 engineForceVector = transform.up * force * data.accelerationFactor;
 		rb.AddForce(engineForceVector, ForceMode2D.Force);
 	}
 
-	void ApplySteering()
+	protected void ApplySteering(float force)
 	{
 		//prevent car from turning while stopped
         float minSpeedBeforeAllowTurningFactor = (rb.velocity.magnitude / 2);
         minSpeedBeforeAllowTurningFactor = Mathf.Clamp01(minSpeedBeforeAllowTurningFactor);
 
 		int dir = velocityVsUp > 0 ? 1: -1;
-		rotationAngle -= carInterface.steeringInput * data.turnFactor * minSpeedBeforeAllowTurningFactor * dir;
+		rotationAngle -= force * data.turnFactor * minSpeedBeforeAllowTurningFactor * dir;
 		rb.MoveRotation(rotationAngle);
 	}
 
-	void KillSideVelocity()
+	protected void KillSideVelocity()
 	{
 		//pivoting for controlled turns
 		Vector2 forwardVelocity = transform.up * Vector2.Dot(rb.velocity, transform.up);
