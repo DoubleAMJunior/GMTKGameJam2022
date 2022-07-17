@@ -4,9 +4,25 @@ using UnityEngine;
 
 public interface IAudioManager
 {
-    public void PlaySFX(AudioClip clip);
-    public void PlayBGM(AudioClip clip);
-    public void PlayRandomSFX(params AudioClip[] clips);
-    public void StopBGM();
+    public void PlayMainMenuBgm();
+    
+    public void PlayMainGameBgm();
+    
+    public void PlayButtonClickSfx();
+    
+    public void PlayCarSpeedingUpSfx();
+    
+    public void PlayCarEngineRunningSfx();
+    
+    public void PlayCarCrashSfx();
+    
+    public void PlayCarFallingIntoTrap();
 
+    public void PlayCarEngineTurningOffSfx();
+
+    public void PlayTrafficLightCountdownSfx();
+
+    public void PlayWinningSfx();
+
+    public void PlayObjectPlacementSfx();
 }

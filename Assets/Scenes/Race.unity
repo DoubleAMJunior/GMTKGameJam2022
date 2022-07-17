@@ -156,6 +156,12 @@ MonoBehaviour:
   raceRoutines: {fileID: 11400000, guid: ded0ef659c499fb44a6794707656f8fb, type: 2}
   participants:
   - {fileID: 5036417164547983586}
+  ImageContainer: {fileID: 0}
+  spriteChanging:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!4 &384531669
 Transform:
   m_ObjectHideFlags: 0
