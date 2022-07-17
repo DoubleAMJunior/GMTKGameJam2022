@@ -2,6 +2,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 using UnityEngine.UIElements;
 
 public class PlayerRankData : MonoBehaviour, IComparable<PlayerRankData>
@@ -10,6 +12,8 @@ public class PlayerRankData : MonoBehaviour, IComparable<PlayerRankData>
     public int LastCheckpointNumber = -1;
     public Checkpoint LastCheckpoint, nextCheckpoint;
     public int CurrentLap = 0;
+    public bool bIsPlayer = false;
+    public Text lapTxt;
 
     // IMPORTANT: make this a reference to PLAYER and get position verctor2 of it when needed
     private Vector2 PlayerPosition;
@@ -129,10 +133,21 @@ public class PlayerRankData : MonoBehaviour, IComparable<PlayerRankData>
     public void increaseLap()
     {
         CurrentLap++;
-
+        if(bIsPlayer)
+        {
+            lapTxt.text = CurrentLap + "/3";
+        }
         //you can check end of race here!
         if(CurrentLap > 3)
         {
+            if(bIsPlayer)
+            {
+                SceneManager.LoadScene("Win");
+            }
+            else
+            {
+                SceneManager.LoadScene("Lose");
+            }
             //win the game
             //check if this is the player, otherwise lose
         }
