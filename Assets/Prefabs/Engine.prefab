@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 5599844570068715585}
   - component: {fileID: 5599844570068715586}
   - component: {fileID: 7225015069923033896}
-  - component: {fileID: 891833895132399692}
+  - component: {fileID: -5095055703381917886}
   m_Layer: 7
-  m_Name: Trap
+  m_Name: Engine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -72,8 +72,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
+  m_SortingOrder: 25
+  m_Sprite: {fileID: -6249010372859577160, guid: 6032de7dcc2584c44a57c04effb11459, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -99,7 +99,7 @@ BoxCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
-    border: {x: 0.049999997, y: 0.049999997, z: 0.049999997, w: 0.049999997}
+    border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 0.16, y: 0.16}
     newSize: {x: 0.2, y: 0.2}
@@ -108,9 +108,9 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.16, y: 0.16}
+  m_Size: {x: 0.11, y: 0.11}
   m_EdgeRadius: 0
---- !u!114 &891833895132399692
+--- !u!114 &-5095055703381917886
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -122,4 +122,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ee04519f27731d40a8ce8eea7ad4d08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SlowPercent: 65
+  SlowPercent: 10

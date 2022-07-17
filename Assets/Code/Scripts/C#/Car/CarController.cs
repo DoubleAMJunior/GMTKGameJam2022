@@ -2,26 +2,43 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
-public class CarController : MonoBehaviour ,ICarHitResponse
+public class CarController : MonoBehaviour, ICarHitResponse
 {
 	[SerializeField] private CarData data;
+	float dragValue, angularDrag, friction, forwardMovement;
     [SerializeField] protected CarInterface carInterface;
 	[SerializeField] private CarRotation carRotation;
 	private Rigidbody2D rb;
 	public float rotationAngle = 0f;
 	private float velocityVsUp = 0f;
 
-	protected PlayerRankData rankData;	
+	protected PlayerRankData rankData;
+
+	protected IEnumerator skidCoroutine;
+	protected IEnumerator engineCoroutine;
+	protected bool bEngineActive = true, bKillSideVelocity = true;
+	
+	private SpriteRenderer spriteRenderer;
+	private TrailRenderer trailRenderer;
 	private void Awake()
 	{
 		rb = GetComponent<Rigidbody2D>();
 		rankData = GetComponent<PlayerRankData>();
+		trailRenderer = GetComponent<TrailRenderer>();
+		trailRenderer.emitting = false;
+		dragValue = data.dragValue;
+		angularDrag = rb.angularDrag;
+		forwardMovement = data.accelerationFactor;
+		spriteRenderer = GetComponent<SpriteRenderer>();
 	}
 
 	protected virtual void FixedUpdate()
 	{
-		ApplyForwardForce(carInterface.accelerationInput);
-		KillSideVelocity();
+		////AssignSprite();
+		if (bEngineActive)
+			ApplyForwardForce(carInterface.accelerationInput);
+		if (bKillSideVelocity)
+			KillSideVelocity();
 		ApplySteering(carInterface.steeringInput);
 		carRotation.Animate();
 	}
@@ -31,7 +48,7 @@ public class CarController : MonoBehaviour ,ICarHitResponse
 		//apply drag when there is no accelerationInput
 		if (force <= 0.5f && force >= -0.5f)
 		{
-			rb.drag = Mathf.Lerp(0, data.dragValue, Time.fixedDeltaTime * data.dragTime);
+			rb.drag = Mathf.Lerp(0, dragValue, Time.fixedDeltaTime * data.dragTime);
 		}
 		else
 		{
@@ -61,7 +78,7 @@ public class CarController : MonoBehaviour ,ICarHitResponse
 		}
 
 		//move car forward
-		Vector2 engineForceVector = transform.up * force * data.accelerationFactor;
+		Vector2 engineForceVector = transform.up * force * forwardMovement;
 		rb.AddForce(engineForceVector, ForceMode2D.Force);
 	}
 
@@ -96,4 +113,72 @@ public class CarController : MonoBehaviour ,ICarHitResponse
 		int reverseP = 100 - percent;
         rb.velocity *= reverseP/100;
     }
+
+	public void SpeedIncrease(float amount)
+    {
+		rb.velocity *= amount;
+    }
+
+    public void DisableEngine(float time)
+    {
+		if (engineCoroutine != null)
+			StopCoroutine(engineCoroutine);
+		engineCoroutine = EngineTime(time);
+		StartCoroutine(engineCoroutine);
+    }
+
+    public void SkidOut(float time)
+    {
+		if (skidCoroutine != null)
+			StopCoroutine(skidCoroutine);
+		skidCoroutine = SkidTime(time);
+		StartCoroutine(skidCoroutine);
+	}
+
+	IEnumerator SkidTime(float time)
+	{
+		dragValue = 5;
+		rb.angularDrag = 0;
+		bKillSideVelocity = false;
+		rb.sharedMaterial = data.skidPhysics;
+		forwardMovement = 1;
+		trailRenderer.emitting = true;
+		yield return new WaitForSeconds(time);
+		dragValue = data.dragValue;
+		rb.angularDrag = angularDrag;
+		bKillSideVelocity = true;
+		rb.sharedMaterial = data.normalPhysics;
+		forwardMovement = data.accelerationFactor;
+		trailRenderer.emitting = false;
+	}
+	IEnumerator EngineTime(float time)
+	{
+		bEngineActive = false;
+		spriteRenderer.color = new Color(0.5f, 0.5f, 0.5f, 0.5f);//data.wrechedCar;
+		yield return new WaitForSeconds(time);
+		bEngineActive = true;
+		spriteRenderer.color = new Color(1, 1, 1, 1);//data.wrechedCar;
+	}
+
+	void AssignSprite()
+    {
+		transform.GetChild(0).rotation = Quaternion.identity;
+
+		if (rb.velocity.x > 0 && rb.velocity.y > 0)
+			spriteRenderer.sprite = data.carSprites[2];
+		else if (rb.velocity.x < 0 && rb.velocity.y > 0)
+			spriteRenderer.sprite = data.carSprites[0];
+		else if (rb.velocity.x > 0 && rb.velocity.y < 0)
+			spriteRenderer.sprite = data.carSprites[7];
+		else if (rb.velocity.x < 0 && rb.velocity.y < 0)
+			spriteRenderer.sprite = data.carSprites[5];
+		else if (rb.velocity.y > 0)
+			spriteRenderer.sprite = data.carSprites[6];
+		else if (rb.velocity.y < 0)
+			spriteRenderer.sprite = data.carSprites[8];
+		else if (rb.velocity.x < 0)
+			spriteRenderer.sprite = data.carSprites[3];
+		else if (rb.velocity.x > 0)
+			spriteRenderer.sprite = data.carSprites[1];
+	}
 }
