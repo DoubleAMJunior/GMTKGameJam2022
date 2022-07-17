@@ -60,8 +60,8 @@ namespace GMTKGameJam2022.Race
                 }
                 else if (direction == 1)
                 {
-                    pos.y += 0.3f * i;
-                    rotation = new Vector3(0, 0, 180);
+                    //pos.y += 0.3f * i;
+                    //rotation = new Vector3(0, 0, 180);
                 }
                 else if (direction == 2)
                 {

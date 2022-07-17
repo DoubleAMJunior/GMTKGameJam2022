@@ -27,8 +27,8 @@ namespace GMTKGameJam2022
 
         public void LoadTrack(int index)
         {
-            if (levelState == LevelState.TrapPlace)
-                return;
+            //if (levelState == LevelState.TrapPlace)
+              //  return;
             Positions.levelLoaded = index;
             levelState = LevelState.TrapPlace;
             SceneManager.LoadScene(TransitionScene);

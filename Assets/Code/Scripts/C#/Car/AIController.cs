@@ -41,6 +41,6 @@ public class AIController : CarController
 
     float ThrottleForce(float steerSpeed)
     {
-        return 1.1f - Mathf.Abs(steerSpeed);
+        return 1.2f - Mathf.Abs(steerSpeed);
     }
 }

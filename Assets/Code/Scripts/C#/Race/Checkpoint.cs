@@ -32,7 +32,7 @@ public class Checkpoint : MonoBehaviour
             return;
         }
         
-        bool isNextCheckpoint = playerData.LastCheckpointNumber + 1 == checkpointNumber;
+        bool isNextCheckpoint = playerData.LastCheckpointNumber + 1 >= checkpointNumber || playerData.LastCheckpointNumber == -1;
         bool isEndOfLap = checkpointNumber == 0 &&
                           playerData.LastCheckpointNumber == RankingManager.Instance.highestCheckpointNumber;
         
