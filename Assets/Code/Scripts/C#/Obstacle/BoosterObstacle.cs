@@ -2,13 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class OilObstical : MonoBehaviour, IObstacle
+
+public class BoosterObstacle : MonoBehaviour, IObstacle
 {
-    [Range(0, 100)]
-    public float time;
+    [Range(0, 5)]
+    public float amount;
     public void OnHit(ICarHitResponse player)
     {
-        player.SkidOut(time);
+        player.SpeedIncrease(amount);
         Destroy(gameObject);
     }
 }
