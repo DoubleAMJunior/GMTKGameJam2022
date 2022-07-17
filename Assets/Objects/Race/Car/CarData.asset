@@ -21,6 +21,8 @@ MonoBehaviour:
   driftFactor: 0.95
   normalPhysics: {fileID: 6200000, guid: 806bd0580b841d847acb1e67c1ff1fb2, type: 2}
   skidPhysics: {fileID: 6200000, guid: d09e986a4260e0f41be8224ee2e11ab4, type: 2}
+  normalCar: {fileID: 5893540339403691780, guid: 6f0c31fc6d57351408091523fd839d52, type: 3}
+  wrechedCar: {fileID: 21300000, guid: 019d7c89aae477043bb7ba169cfae1b1, type: 3}
   carSprites:
   - {fileID: -3656531271222932061, guid: 6f0c31fc6d57351408091523fd839d52, type: 3}
   - {fileID: 3930011312167392660, guid: 6f0c31fc6d57351408091523fd839d52, type: 3}
