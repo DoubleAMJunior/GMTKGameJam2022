@@ -7,8 +7,9 @@ public class CarController : MonoBehaviour, ICarHitResponse
 	[SerializeField] private CarData data;
 	float dragValue, angularDrag, friction, forwardMovement;
     [SerializeField] protected CarInterface carInterface;
+	[SerializeField] private CarRotation carRotation;
 	private Rigidbody2D rb;
-	private float rotationAngle = 0f;
+	public float rotationAngle = 0f;
 	private float velocityVsUp = 0f;
 
 	protected PlayerRankData rankData;
@@ -39,6 +40,7 @@ public class CarController : MonoBehaviour, ICarHitResponse
 		if (bKillSideVelocity)
 			KillSideVelocity();
 		ApplySteering(carInterface.steeringInput);
+		carRotation.Animate();
 	}
 
 	protected void ApplyForwardForce(float force)

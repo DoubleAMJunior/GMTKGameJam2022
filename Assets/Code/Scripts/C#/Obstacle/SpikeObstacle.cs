@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpikeObstical : MonoBehaviour, IObstacle
+public class SpikeObstacle : MonoBehaviour, IObstacle
 {
-    [Range(0, 100)]
+    [Range(0, 30)]
     public int SlowPercent;
     public void OnHit(ICarHitResponse player)
     {
