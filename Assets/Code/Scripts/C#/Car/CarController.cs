@@ -7,7 +7,7 @@ public class CarController : MonoBehaviour, ICarHitResponse
 	[SerializeField] private CarData data;
 	float dragValue, angularDrag, friction, forwardMovement;
     [SerializeField] protected CarInterface carInterface;
-	[SerializeField] private CarRotation carRotation;
+	[SerializeField] protected CarRotation carRotation;
 	private Rigidbody2D rb;
 	public float rotationAngle = 0f;
 	private float velocityVsUp = 0f;

@@ -8,7 +8,7 @@ namespace GMTKGameJam2022
     {
         private Action initialize;
         private Action startRace;
-        private Action<Vector3> setCars;
+        private Action<Vector3, int> setCars;
         private void OnEnable()
         {
             initialize = null;
@@ -36,15 +36,15 @@ namespace GMTKGameJam2022
         {
             startRace?.Invoke();
         }
-        public void SubscribeSetCar(Action<Vector3> action)
+        public void SubscribeSetCar(Action<Vector3, int> action)
         {
             if (action != null)
                 setCars += action;
         }
 
-        public void SetCars(Vector3 pos)
+        public void SetCars(Vector3 pos, int direction)
         {
-            setCars?.Invoke(pos);
+            setCars?.Invoke(pos, direction);
         }
     }
 }

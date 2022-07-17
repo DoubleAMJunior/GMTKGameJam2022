@@ -131,6 +131,11 @@ public class PlayerRankData : MonoBehaviour, IComparable<PlayerRankData>
         CurrentLap++;
 
         //you can check end of race here!
+        if(CurrentLap > 3)
+        {
+            //win the game
+            //check if this is the player, otherwise lose
+        }
     }
 
     public void UpdateCurrentRank(int rank)

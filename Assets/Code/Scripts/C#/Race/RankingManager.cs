@@ -11,7 +11,7 @@ public class RankingManager : MonoBehaviour
     private GameObject[] checkpointsGameObjects;
     private List<Checkpoint> Checkpoints;
     private GameObject[] playersGameObjects;
-    [SerializeField] private List<PlayerRankData> Ranks;
+    [SerializeField] public List<PlayerRankData> Ranks;
 
     public int highestCheckpointNumber;
     
@@ -41,6 +41,7 @@ public class RankingManager : MonoBehaviour
         foreach (GameObject playersGameObject in playersGameObjects)
         {
             Ranks.Add(playersGameObject.GetComponent<PlayerRankData>());
+            Debug.Log("Added a rank to the AI System");
         }
         
     }

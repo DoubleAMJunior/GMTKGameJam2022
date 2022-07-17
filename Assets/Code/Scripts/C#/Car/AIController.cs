@@ -16,6 +16,7 @@ public class AIController : CarController
             KillSideVelocity();
 
         ApplySteering(steerForce);
+        ////carRotation.Animate();
     }
 
     float CalculateSteerForce()

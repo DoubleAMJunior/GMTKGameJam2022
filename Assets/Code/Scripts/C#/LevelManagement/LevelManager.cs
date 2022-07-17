@@ -29,6 +29,7 @@ namespace GMTKGameJam2022
         {
             if (levelState == LevelState.TrapPlace)
                 return;
+            Positions.levelLoaded = index;
             levelState = LevelState.TrapPlace;
             SceneManager.LoadScene(TransitionScene);
             var op =SceneManager.LoadSceneAsync(TrackList[index],LoadSceneMode.Additive);
